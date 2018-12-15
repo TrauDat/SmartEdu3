@@ -6,7 +6,6 @@ public class KhoaHoc {
     int MAKHOAHOC,HOCPHI;
     String TENKHOAHOC,MOTA,ANHBIA;
     boolean TRANGTHAI;
-    List<KhoaHoc> khoaHocs;
 
     public List<KhoaHoc> getKhoaHocs() {
         return khoaHocs;
@@ -16,6 +15,7 @@ public class KhoaHoc {
         this.khoaHocs = khoaHocs;
     }
 
+    List<KhoaHoc> khoaHocs;
 
 
     public int getMAKHOAHOC() {

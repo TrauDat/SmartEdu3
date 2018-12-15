@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
 
 import com.traudat.smartedu.Adapter.ViewPagerAdapter;
 
@@ -17,24 +18,25 @@ public class TrangChuActivity extends AppCompatActivity {
 
 
 
-    public static final String SERVER_NAME= "http://192.168.1.36:8080/SmartEdu/loaisanpham.php";
-    public static final String SERVER= "http://192.168.1.36:8080/SmartEdu";
-    android.support.v7.widget.Toolbar toolbar;
+    public static final String SERVER_NAME= "http://192.168.137.116:8080/SmartEdu/loaisanpham.php";
+    public static final String SERVER= "http://192.168.137.116:8080/SmartEdu";
+    Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
-    AppBarLayout appBarLayout;
+
     Menu menu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trangchu_layout);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         tabLayout = findViewById(R.id.tabs);
-        viewPager = findViewById(R.id.viewpager);
+        viewPager = findViewById(R.id.viewpage);
 
 
         toolbar.setTitle("");
+
 
 
         ViewPagerAdapter adapter  = new ViewPagerAdapter(getSupportFragmentManager());

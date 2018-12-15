@@ -22,6 +22,7 @@
             android:layout_height="100dp" />
 
         <TextView
+            android:id="@+id/txtTenKhoaHoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tên khóa học"
@@ -31,6 +32,7 @@
             />
 
         <TextView
+            android:id="@+id/txtHocPhi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Giá tiền"

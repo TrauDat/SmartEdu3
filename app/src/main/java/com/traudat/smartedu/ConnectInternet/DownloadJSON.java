@@ -20,39 +20,35 @@ import java.util.List;
 import java.util.Map;
 
 public class DownloadJSON extends AsyncTask<String,Void,String> {
-
     String duongdan;
     List<HashMap<String,String>> attrs;
     StringBuilder dulieu;
     boolean method = true;
 
-
-    public DownloadJSON(String duongdan) {
+    public DownloadJSON(String duongdan){
         this.duongdan = duongdan;
         method = true;
     }
 
-    public DownloadJSON(String duongdan, List<HashMap<String,String>> attrs) {
+    public DownloadJSON(String duongdan, List<HashMap<String,String>> attrs){
         this.duongdan = duongdan;
-        this.attrs  = attrs;
+        this.attrs = attrs;
         method = false;
     }
-
-
 
     @Override
     protected String doInBackground(String... strings) {
         String data = "";
-
         try {
             URL url = new URL(duongdan);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
-            if (!method){
+            if(!method){
                 data = methodPost(httpURLConnection);
-            } else {
+            }else{
                 data = methodGet(httpURLConnection);
             }
+
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -64,7 +60,7 @@ public class DownloadJSON extends AsyncTask<String,Void,String> {
         return data;
     }
 
-    private String methodGet(HttpURLConnection httpURLConnection) {
+    private String methodGet(HttpURLConnection httpURLConnection){
         String data = "";
         InputStream inputStream = null;
         try {
@@ -73,12 +69,12 @@ public class DownloadJSON extends AsyncTask<String,Void,String> {
             InputStreamReader reader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(reader);
 
-
             dulieu = new StringBuilder();
             String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) !=null){
                 dulieu.append(line);
             }
+
             data = dulieu.toString();
             bufferedReader.close();
             reader.close();
@@ -86,27 +82,30 @@ public class DownloadJSON extends AsyncTask<String,Void,String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return data;
 
+        return data;
     }
 
-    private String methodPost(HttpURLConnection httpURLConnection) {
+    private String methodPost(HttpURLConnection httpURLConnection){
         String data = "";
         String key = "";
         String value = "";
+
         try {
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
 
-
             Uri.Builder builder = new Uri.Builder();
+
             int count = attrs.size();
-            for (int i = 0 ; i < count ; i++) {
-                for (Map.Entry<String,String> values : attrs.get(i).entrySet()) {
+            for(int i=0;i<count;i++){
+
+                for(Map.Entry<String,String> values : attrs.get(i).entrySet()){
                     key = values.getKey();
                     value = values.getValue();
                 }
+
                 builder.appendQueryParameter(key,value);
             }
             String query = builder.build().getEncodedQuery();
@@ -129,8 +128,8 @@ public class DownloadJSON extends AsyncTask<String,Void,String> {
             e.printStackTrace();
         }
 
+
         return data;
     }
-
 
 }

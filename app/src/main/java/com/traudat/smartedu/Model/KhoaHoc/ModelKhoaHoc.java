@@ -14,29 +14,31 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class ModelKhoaHoc {
-    public List<KhoaHoc> LayDanhSachKhoaHocDuocMo(String tenham, String tenmang) {
+
+    public List<KhoaHoc> LayDanhSachKhoaHocDuocMo(){
 
         List<KhoaHoc> khoaHocs = new ArrayList<>();
-        List<HashMap<String,String>> attrs = new ArrayList<>();
-        String dataJSON = "";
+
+        List<HashMap<String,String>> attrs= new ArrayList<>();
+        String dataJSON= "";
 
         String duongdan = TrangChuActivity.SERVER_NAME;
-
-        HashMap<String,String> hsHam = new HashMap<>();
-        hsHam.put("ham",tenham);
+        HashMap<String,String> hsHam= new HashMap<>();
+        hsHam.put("ham","LayDanhSachKhoaHoc");
 
         attrs.add(hsHam);
 
-        DownloadJSON downloadJSON  = new DownloadJSON(duongdan,attrs);
+        DownloadJSON downloadJSON = new DownloadJSON(duongdan,attrs);
         downloadJSON.execute();
 
         try {
             dataJSON = downloadJSON.get();
+
             JSONObject jsonObject = new JSONObject(dataJSON);
             JSONArray jsonArrayDanhSachKhoaHoc = jsonObject.getJSONArray("DANHSACHKHOAHOC");
             int dem = jsonArrayDanhSachKhoaHoc.length();
 
-            for (int i = 0 ; i < dem; i++){
+            for (int i=0;i< dem;i++){
                 KhoaHoc khoaHoc = new KhoaHoc();
                 JSONObject object = jsonArrayDanhSachKhoaHoc.getJSONObject(i);
 
@@ -47,15 +49,17 @@ public class ModelKhoaHoc {
 
                 khoaHocs.add(khoaHoc);
             }
-        } catch (ExecutionException e) {
+
+        }catch (InterruptedException e){
             e.printStackTrace();
-        } catch (InterruptedException e) {
+        }catch (ExecutionException e){
             e.printStackTrace();
-        } catch (JSONException e) {
+        }catch (JSONException e){
             e.printStackTrace();
         }
 
-
         return khoaHocs;
     }
+
+
 }

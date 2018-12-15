@@ -7,6 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="menuitemcolor" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/bgcolor</item>
+    </style>
 
     <style name="capfale" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>

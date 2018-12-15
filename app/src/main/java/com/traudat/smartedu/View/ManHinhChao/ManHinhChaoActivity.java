@@ -13,21 +13,5 @@ public class ManHinhChaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manhinhchao_layout);
-
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                }catch (Exception e){
-
-                }finally {
-                    Intent iTrangChu = new Intent(ManHinhChaoActivity.this, TrangChuActivity.class);
-                    startActivity(iTrangChu);
-                }
-            }
-        });
-
-        thread.start();
     }
 }
