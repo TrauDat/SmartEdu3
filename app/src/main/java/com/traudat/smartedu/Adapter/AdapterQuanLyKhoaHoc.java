@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.traudat.smartedu.Model.ObjectClass.KhoaHoc;
 import com.traudat.smartedu.Model.ObjectClass.QuanLyKhoaHoc;
 import com.traudat.smartedu.R;
 
@@ -15,37 +16,38 @@ import java.util.List;
 
 public class AdapterQuanLyKhoaHoc extends RecyclerView.Adapter<AdapterQuanLyKhoaHoc.ViewHolderQuanLyKhoaHoc> {
 
-
     Context context;
     List<QuanLyKhoaHoc> quanLyKhoaHocList;
+
 
     public AdapterQuanLyKhoaHoc(Context context, List<QuanLyKhoaHoc> quanLyKhoaHocList) {
         this.context = context;
         this.quanLyKhoaHocList = quanLyKhoaHocList;
+
     }
+
 
     public class ViewHolderQuanLyKhoaHoc extends RecyclerView.ViewHolder {
 
         RecyclerView recyclerViewDanhSachKhoaHoc;
 
+
         public ViewHolderQuanLyKhoaHoc(@NonNull View itemView) {
             super(itemView);
 
-            recyclerViewDanhSachKhoaHoc = itemView.findViewById(R.id.recyclerDanhSachKhoaHoc);
-
-
+            recyclerViewDanhSachKhoaHoc  = itemView.findViewById(R.id.recyclerDanhSachKhoaHoc);
         }
     }
+
 
     @NonNull
     @Override
     public AdapterQuanLyKhoaHoc.ViewHolderQuanLyKhoaHoc onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.custom_recycler_dangkykhoahoc,viewGroup,false);
 
-        ViewHolderQuanLyKhoaHoc viewHolderQuanLyKhoaHoc = new ViewHolderQuanLyKhoaHoc(view);
 
+        ViewHolderQuanLyKhoaHoc viewHolderQuanLyKhoaHoc = new ViewHolderQuanLyKhoaHoc(view);
         return viewHolderQuanLyKhoaHoc;
     }
 
@@ -53,9 +55,8 @@ public class AdapterQuanLyKhoaHoc extends RecyclerView.Adapter<AdapterQuanLyKhoa
     public void onBindViewHolder(@NonNull AdapterQuanLyKhoaHoc.ViewHolderQuanLyKhoaHoc viewHolderQuanLyKhoaHoc, int i) {
         QuanLyKhoaHoc quanLyKhoaHoc = quanLyKhoaHocList.get(i);
 
-        AdapterKhoaHoc adapterKhoaHoc = new AdapterKhoaHoc(context,R.layout.custom_layout_dangkykhoahoc,quanLyKhoaHoc.getKhoaHocs());
+        AdapterKhoaHoc adapterKhoaHoc = new AdapterKhoaHoc(context,quanLyKhoaHoc.getKhoaHocs());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
-
 
         viewHolderQuanLyKhoaHoc.recyclerViewDanhSachKhoaHoc.setLayoutManager(layoutManager);
         viewHolderQuanLyKhoaHoc.recyclerViewDanhSachKhoaHoc.setAdapter(adapterKhoaHoc);

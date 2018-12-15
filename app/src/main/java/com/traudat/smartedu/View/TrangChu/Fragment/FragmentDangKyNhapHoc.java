@@ -1,5 +1,6 @@
 package com.traudat.smartedu.View.TrangChu.Fragment;
 
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.traudat.smartedu.Adapter.AdapterKhoaHoc;
 import com.traudat.smartedu.Adapter.AdapterQuanLyKhoaHoc;
 import com.traudat.smartedu.Model.ObjectClass.KhoaHoc;
 import com.traudat.smartedu.Model.ObjectClass.QuanLyKhoaHoc;
@@ -21,10 +24,11 @@ import java.util.List;
 
 public class FragmentDangKyNhapHoc extends Fragment implements ViewKhoaHoc {
 
+
     RecyclerView recyclerView;
-    List<KhoaHoc> quanLyKhoaHocList;;
+    List<QuanLyKhoaHoc> quanLyKhoaHocList;
     PresenterLogicKhoaHoc presenterLogicKhoaHoc;
-    List<KhoaHoc> khoaHocList;
+
 
     @Nullable
     @Override
@@ -32,24 +36,19 @@ public class FragmentDangKyNhapHoc extends Fragment implements ViewKhoaHoc {
         View view = inflater.inflate(R.layout.layout_fragmentdangkynhaphoc,container,false);
 
         recyclerView = view.findViewById(R.id.recyclerKhoaHoc);
-
         presenterLogicKhoaHoc = new PresenterLogicKhoaHoc(this);
 
-        quanLyKhoaHocList  = new ArrayList<>();
-
+        quanLyKhoaHocList = new ArrayList<>();
         presenterLogicKhoaHoc.LayDanhSachKhoaHoc();
 
-        return view;
+        return  view;
     }
-
 
     @Override
     public void HienThiDanhSachKhoaHoc(List<QuanLyKhoaHoc> quanLyKhoaHocs) {
         quanLyKhoaHocList = quanLyKhoaHocs;
-
         AdapterQuanLyKhoaHoc adapterQuanLyKhoaHoc = new AdapterQuanLyKhoaHoc(getContext(),quanLyKhoaHocList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterQuanLyKhoaHoc);
@@ -59,15 +58,11 @@ public class FragmentDangKyNhapHoc extends Fragment implements ViewKhoaHoc {
 
     @Override
     public void HienThiDanhSach(List<KhoaHoc> khoaHocs) {
-        quanLyKhoaHocList = khoaHocs;
+        AdapterKhoaHoc adapterKhoaHoc = new AdapterKhoaHoc(getContext(),khoaHocs);
 
-        AdapterQuanLyKhoaHoc adapterQuanLyKhoaHoc = new AdapterQuanLyKhoaHoc(getContext(),quanLyKhoaHocList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-
-
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapterQuanLyKhoaHoc);
-
-        adapterQuanLyKhoaHoc.notifyDataSetChanged();
+        recyclerView.setAdapter(adapterKhoaHoc);
+        adapterKhoaHoc.notifyDataSetChanged();
     }
 }

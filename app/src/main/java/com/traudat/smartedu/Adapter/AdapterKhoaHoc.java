@@ -24,18 +24,17 @@ public class AdapterKhoaHoc extends RecyclerView.Adapter<AdapterKhoaHoc.ViewHold
 
     Context context;
     List<KhoaHoc> khoaHocList;
-    int layout;
 
-    public AdapterKhoaHoc(Context context,int layout, List<KhoaHoc> khoaHocList) {
+
+    public AdapterKhoaHoc(Context context, List<KhoaHoc> khoaHocList) {
         this.context = context;
         this.khoaHocList = khoaHocList;
-        this.layout = layout;
+
     }
 
 
     public class ViewHolderKhoaHoc extends RecyclerView.ViewHolder {
         ImageView imKhoaHoc;
-
         TextView txtTenKhoaHoc,txtHocPhi;
         CardView cardView;
 
@@ -54,14 +53,14 @@ public class AdapterKhoaHoc extends RecyclerView.Adapter<AdapterKhoaHoc.ViewHold
     @Override
     public AdapterKhoaHoc.ViewHolderKhoaHoc onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(layout,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.custom_layout_dangkykhoahoc,viewGroup,false);
 
         ViewHolderKhoaHoc viewHolderKhoaHoc = new ViewHolderKhoaHoc(view);
         return viewHolderKhoaHoc;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterKhoaHoc.ViewHolderKhoaHoc viewHolderKhoaHoc, int i) {
+    public void onBindViewHolder(@NonNull ViewHolderKhoaHoc viewHolderKhoaHoc, int i) {
         KhoaHoc khoaHoc = khoaHocList.get(i);
 
         Picasso.with(context).load(khoaHoc.getANHBIA()).resize(70,70).centerInside().into(viewHolderKhoaHoc.imKhoaHoc);
@@ -72,11 +71,6 @@ public class AdapterKhoaHoc extends RecyclerView.Adapter<AdapterKhoaHoc.ViewHold
         String gia = numberFormat.format(giaTien);
 
         viewHolderKhoaHoc.txtHocPhi.setText(gia + "VNĐ");
-
-        viewHolderKhoaHoc.cardView.setTag(khoaHoc.getMAKHOAHOC());
-
-
-
 
     }
 

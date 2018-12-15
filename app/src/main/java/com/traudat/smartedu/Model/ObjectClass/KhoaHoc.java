@@ -7,15 +7,8 @@ public class KhoaHoc {
     String TENKHOAHOC,MOTA,ANHBIA;
     boolean TRANGTHAI;
 
-    public List<KhoaHoc> getKhoaHocs() {
-        return khoaHocs;
-    }
 
-    public void setKhoaHocs(List<KhoaHoc> khoaHocs) {
-        this.khoaHocs = khoaHocs;
-    }
 
-    List<KhoaHoc> khoaHocs;
 
 
     public int getMAKHOAHOC() {
