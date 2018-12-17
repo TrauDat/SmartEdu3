@@ -1,10 +1,12 @@
 package com.traudat.smartedu.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.traudat.smartedu.Model.ObjectClass.KhoaHoc;
 import com.traudat.smartedu.R;
+import com.traudat.smartedu.View.ChiTietKhoaHoc.ChiTietKhoaHocActivity;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -61,16 +64,32 @@ public class AdapterKhoaHoc extends RecyclerView.Adapter<AdapterKhoaHoc.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderKhoaHoc viewHolderKhoaHoc, int i) {
-        KhoaHoc khoaHoc = khoaHocList.get(i);
+        final KhoaHoc khoaHoc = khoaHocList.get(i);
 
         Picasso.with(context).load(khoaHoc.getANHBIA()).resize(70,70).centerInside().into(viewHolderKhoaHoc.imKhoaHoc);
         viewHolderKhoaHoc.txtTenKhoaHoc.setText(khoaHoc.getTENKHOAHOC());
+
+
+
 
         int giaTien = khoaHoc.getHOCPHI();
         NumberFormat numberFormat = new DecimalFormat("###,###");
         String gia = numberFormat.format(giaTien);
 
         viewHolderKhoaHoc.txtHocPhi.setText(gia + "VNĐ");
+
+        viewHolderKhoaHoc.cardView.setTag(khoaHoc.getMAKHOAHOC());
+
+
+        viewHolderKhoaHoc.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent iChiTietKhoaHoc = new Intent(context,ChiTietKhoaHocActivity.class);
+                iChiTietKhoaHoc.putExtra("makhoahoc", (int) v.getTag());
+                context.startActivity(iChiTietKhoaHoc);
+            }
+        });
 
     }
 

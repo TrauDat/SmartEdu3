@@ -6,6 +6,28 @@ public class KhoaHoc {
     int MAKHOAHOC,HOCPHI;
     String TENKHOAHOC,MOTA,ANHBIA;
     boolean TRANGTHAI;
+    ChiTietKhoaHoc chiTietKhoaHoc;
+
+    List<ChiTietKhoaHoc> chiTietKhoaHocList;
+
+    public List<ChiTietKhoaHoc> getChiTietKhoaHocList() {
+        return chiTietKhoaHocList;
+    }
+
+    public void setChiTietKhoaHocList(List<ChiTietKhoaHoc> chiTietKhoaHocList) {
+        this.chiTietKhoaHocList = chiTietKhoaHocList;
+    }
+
+
+    public ChiTietKhoaHoc getChiTietKhoaHoc() {
+        return chiTietKhoaHoc;
+    }
+
+    public void setChiTietKhoaHoc(ChiTietKhoaHoc chiTietKhoaHoc) {
+        this.chiTietKhoaHoc = chiTietKhoaHoc;
+    }
+
+
 
 
 
