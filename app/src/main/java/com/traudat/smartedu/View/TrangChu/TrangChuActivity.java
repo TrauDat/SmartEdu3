@@ -18,8 +18,9 @@ public class TrangChuActivity extends AppCompatActivity {
 
 
 
-    public static final String SERVER_NAME= "http://10.5.50.252:8080/SmartEdu/loaisanpham.php";
-    public static final String SERVER= "http://10.5.50.252:8080/SmartEdu";
+
+    public static final String SERVER_NAME = "http://maugiaosmartedu.tk/smartedu/loaisanpham.php";
+    public static final String SERVER = "http://maugiaosmartedu.tk/smartedu";
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
