@@ -22,14 +22,15 @@ import com.traudat.smartedu.View.DangNhap_DangKy.Frangment.DangNhapActivity;
 public class TrangChuActivity extends AppCompatActivity {
 
 
-
-
-
     public static final String SERVER_NAME = "http://maugiaosmartedu.tk/smartedu/loaisanpham.php";
     public static final String SERVER = "http://maugiaosmartedu.tk/smartedu";
 
 //    public static final String SERVER_NAME= "http://192.168.1.107:81/weblazada/loaisanpham.php";
 //    public static final String SERVER= "http://192.168.1.107:81/weblazada";
+
+
+//    public static final String SERVER_NAME= "http://10.0.88.145:81/weblazada/loaisanpham.php";
+    //    public static final String SERVER= "http://192.168.1.107:81/weblazada";
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -46,9 +47,9 @@ public class TrangChuActivity extends AppCompatActivity {
         setContentView(R.layout.trangchu_layout);
 
         viewPager = findViewById(R.id.viewpage);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        toolbar = findViewById(R.id.toolbar);
+        tabLayout =findViewById(R.id.tabs);
+        drawerLayout =  findViewById(R.id.drawerLayout);
 
         toolbar.setTitle("");
 

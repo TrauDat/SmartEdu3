@@ -30,9 +30,9 @@ public class FrangmentDangNhap extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_fragment_dangnhap,container,false);
-        btnDangNhap = (Button) view.findViewById(R.id.btnDangNhap);
-        edTenDangNhap = (EditText) view.findViewById(R.id.edDiaChiEmailDangNhap);
-        edMatKhau = (EditText) view.findViewById(R.id.edMatKhauDangNhap);
+        btnDangNhap =  view.findViewById(R.id.btnDangNhap);
+        edTenDangNhap =view.findViewById(R.id.edDiaChiEmailDangNhap);
+        edMatKhau = view.findViewById(R.id.edMatKhauDangNhap);
         modelDangNhap=new ModelDangNhap();
 
 //        btnDangNhapFacebook.setOnClickListener(this);
@@ -52,6 +52,7 @@ public class FrangmentDangNhap extends Fragment implements View.OnClickListener{
                 if(kiemtra){
                     Intent iTrangChu = new Intent(getActivity(), TrangChuActivity.class);
                     startActivity(iTrangChu);
+                    Toast.makeText(getActivity(),"Đăng nhập thành công !",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getActivity(),"Tên đăng nhập và mật khẩu không đúng !",Toast.LENGTH_SHORT).show();
                 }
