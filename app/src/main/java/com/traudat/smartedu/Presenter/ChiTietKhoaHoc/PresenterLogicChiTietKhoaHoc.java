@@ -1,6 +1,7 @@
 package com.traudat.smartedu.Presenter.ChiTietKhoaHoc;
 
 import com.traudat.smartedu.Model.ChiTietKhoaHoc.ModelChiTietKhoaHoc;
+import com.traudat.smartedu.Model.DangNhap_DangKy.ModelDangNhap;
 import com.traudat.smartedu.Model.ObjectClass.ChiTietKhoaHoc;
 import com.traudat.smartedu.Model.ObjectClass.KhoaHoc;
 import com.traudat.smartedu.View.ChiTietKhoaHoc.ViewChiTietKhoaHoc;
@@ -13,6 +14,7 @@ public class PresenterLogicChiTietKhoaHoc implements IPresenterChiTietKhoaHoc {
     ViewChiTietKhoaHoc viewChiTietKhoaHoc;
     ModelChiTietKhoaHoc modelChiTietKhoaHoc;
 
+
     public PresenterLogicChiTietKhoaHoc(ViewChiTietKhoaHoc viewChiTietKhoaHoc) {
         this.viewChiTietKhoaHoc = viewChiTietKhoaHoc;
         modelChiTietKhoaHoc = new ModelChiTietKhoaHoc();
@@ -22,7 +24,7 @@ public class PresenterLogicChiTietKhoaHoc implements IPresenterChiTietKhoaHoc {
 
     @Override
     public void LayChiTietKhoaHoc(int makhoahoc) {
-        KhoaHoc khoaHoc = modelChiTietKhoaHoc.DanhSachChiTietKhoaHoc(makhoahoc);
+        KhoaHoc khoaHoc = modelChiTietKhoaHoc.DanhSachChiTietKhoaHoc("LayChiTietKhoaHocTheoMaKhoaHoc","CHITIETKHOAHOC",makhoahoc);
 
         if (khoaHoc.getMAKHOAHOC() > 0) {
             viewChiTietKhoaHoc.HienThiChiTietKhoaHoc(khoaHoc);

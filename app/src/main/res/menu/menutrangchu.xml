@@ -13,15 +13,15 @@
 
     </item>
 
-    <item
-        android:id="@+id/itGioHang"
-        android:title="Giỏ hàng"
-        android:icon="@drawable/ic_shopping_cart_white_24dp"
-        app:showAsAction="always"
-        app:actionLayout="@layout/custom_layout_giohang"
-        >
+    <!--<item-->
+        <!--android:id="@+id/itGioHang"-->
+        <!--android:title="Giỏ hàng"-->
+        <!--android:icon="@drawable/ic_shopping_cart_white_24dp"-->
+        <!--app:showAsAction="always"-->
+        <!--app:actionLayout="@layout/custom_layout_giohang"-->
+        <!--&gt;-->
 
-    </item>
+    <!--</item>-->
 
     <item
         android:icon="@drawable/ic_more_vert_white_24dp"

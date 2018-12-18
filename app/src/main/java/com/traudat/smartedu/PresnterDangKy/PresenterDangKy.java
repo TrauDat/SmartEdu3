@@ -1,8 +1,15 @@
 package com.traudat.smartedu.PresnterDangKy;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.view.View;
+import android.widget.Toast;
+
 import com.traudat.smartedu.Model.DangNhap_DangKy.ModelDangKy;
 import com.traudat.smartedu.Model.ObjectClass.NhanVien;
+import com.traudat.smartedu.View.DangNhap_DangKy.Frangment.DangNhapActivity;
 import com.traudat.smartedu.View.DangNhap_DangKy.ViewDangKy;
+import com.traudat.smartedu.View.TrangChu.TrangChuActivity;
 
 public class PresenterDangKy implements IPresenterDangKy {
     ViewDangKy viewDangKy;
@@ -18,6 +25,7 @@ public class PresenterDangKy implements IPresenterDangKy {
         boolean kiemtra = modelDangKy.DangKyThanhVien(nhanvien);
         if(kiemtra){
             viewDangKy.DangKyThangCong();
+
         }else{
             viewDangKy.DangKyThatBai();
         }

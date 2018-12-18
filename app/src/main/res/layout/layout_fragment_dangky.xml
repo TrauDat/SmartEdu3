@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Họ tên đầy đủ"
-                android:textColor="@color/colorGray"
+                android:textColor="@color/black"
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Địa chỉ email"
-                android:textColor="@color/colorGray"
+                android:textColor="@color/black"
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -63,14 +63,14 @@
             android:layout_margin="10dp"
             >
 
-            <com.checongbinh.lazada.CustomView.PasswordEditText
+            <com.traudat.smartedu.CustomView.PasswordEditText
                 android:id="@+id/edMatKhauDK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mật khẩu"
                 app:useStrike="true"
                 app:useValidate="true"
-                android:textColor="@color/colorGray"
+                android:textColor="@color/black"
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -89,13 +89,13 @@
             android:layout_margin="10dp"
             >
 
-            <com.checongbinh.lazada.CustomView.PasswordEditText
+            <com.traudat.smartedu.CustomView.PasswordEditText
                 android:id="@+id/edNhapLaiMatKhauDK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập lại mật khẩu"
                 app:useStrike="true"
-                android:textColor="@color/colorGray"
+                android:textColor="@color/black"
                 />
 
         </android.support.design.widget.TextInputLayout>

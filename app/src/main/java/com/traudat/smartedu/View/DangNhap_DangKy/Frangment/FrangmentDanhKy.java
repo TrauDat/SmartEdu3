@@ -1,5 +1,6 @@
 package com.traudat.smartedu.View.DangNhap_DangKy.Frangment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,11 +15,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.traudat.smartedu.Model.ObjectClass.NhanVien;
 import com.traudat.smartedu.PresnterDangKy.PresenterDangKy;
 import com.traudat.smartedu.R;
 import com.traudat.smartedu.View.DangNhap_DangKy.ViewDangKy;
+import com.traudat.smartedu.View.TrangChu.TrangChuActivity;
 
 public class FrangmentDanhKy extends Fragment implements ViewDangKy, View.OnClickListener, View.OnFocusChangeListener {
     PresenterDangKy presenterLogicDangKy;
@@ -71,7 +74,6 @@ public class FrangmentDanhKy extends Fragment implements ViewDangKy, View.OnClic
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
-
             case R.id.btnDangKy:
                 btnDangKy();
                 break;
@@ -99,9 +101,12 @@ public class FrangmentDanhKy extends Fragment implements ViewDangKy, View.OnClic
             nhanVien.setEmailDocQuyen(emaildocquyen);
             nhanVien.setMaLoaiNV(2);
 
+
             presenterLogicDangKy.ThucHienDangKy(nhanVien);
+
         }else{
             Log.d("kiemtra","Dang ky that bai ");
+            Toast.makeText(getActivity(),"Dang ky that bai !",Toast.LENGTH_SHORT).show();
         }
 
 

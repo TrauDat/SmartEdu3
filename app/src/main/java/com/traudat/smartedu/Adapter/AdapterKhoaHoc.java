@@ -63,14 +63,11 @@ public class AdapterKhoaHoc extends RecyclerView.Adapter<AdapterKhoaHoc.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderKhoaHoc viewHolderKhoaHoc, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolderKhoaHoc viewHolderKhoaHoc, int i) {
         final KhoaHoc khoaHoc = khoaHocList.get(i);
 
         Picasso.with(context).load(khoaHoc.getANHBIA()).resize(70,70).centerInside().into(viewHolderKhoaHoc.imKhoaHoc);
         viewHolderKhoaHoc.txtTenKhoaHoc.setText(khoaHoc.getTENKHOAHOC());
-
-
-
 
         int giaTien = khoaHoc.getHOCPHI();
         NumberFormat numberFormat = new DecimalFormat("###,###");
@@ -81,12 +78,16 @@ public class AdapterKhoaHoc extends RecyclerView.Adapter<AdapterKhoaHoc.ViewHold
         viewHolderKhoaHoc.cardView.setTag(khoaHoc.getMAKHOAHOC());
 
 
+
         viewHolderKhoaHoc.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("kiemtra2", String.valueOf(v.getTag()));
 
                 Intent iChiTietKhoaHoc = new Intent(context,ChiTietKhoaHocActivity.class);
+
                 iChiTietKhoaHoc.putExtra("makhoahoc", (int) v.getTag());
+
                 context.startActivity(iChiTietKhoaHoc);
             }
         });

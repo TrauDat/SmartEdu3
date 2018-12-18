@@ -1,5 +1,6 @@
 package com.traudat.smartedu.CustomView;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 
@@ -19,7 +20,8 @@ import com.traudat.smartedu.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PasswordEditText extends android.support.v7.widget.AppCompatEditText {
+@SuppressLint("AppCompatCustomView")
+public class PasswordEditText extends EditText {
     Drawable eye,eyeStrike;
     Boolean visible = false;
     Boolean useStrike = false;
@@ -44,42 +46,24 @@ public class PasswordEditText extends android.support.v7.widget.AppCompatEditTex
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-//    public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//        khoitao(attrs);
-//    }
+    public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        khoitao(attrs);
+    }
 
     private void khoitao(AttributeSet attrs){
 
         this.pattern = Pattern.compile(MATCHER_PATTERN);
         if(attrs != null){
-//            TypedArray array = getContext().getTheme().obtainStyledAttributes(attrs,R.styleable.PasswordEditText,0,0);
-//            this.useStrike = array.getBoolean(R.styleable.PasswordEditText_useStrike,false);
-//            this.useValidate = array.getBoolean(R.styleable.PasswordEditText_useValidate,false);
+            TypedArray array = getContext().getTheme().obtainStyledAttributes(attrs,R.styleable.PasswordEditText,0,0);
+            this.useStrike = array.getBoolean(R.styleable.PasswordEditText_useStrike,false);
+            this.useValidate = array.getBoolean(R.styleable.PasswordEditText_useValidate,false);
         }
         eye = ContextCompat.getDrawable(getContext(), R.drawable.ic_visibility_black_24dp).mutate();
         eyeStrike = ContextCompat.getDrawable(getContext(), R.drawable.ic_visibility_off_black_24dp).mutate();
 
         if(this.useValidate){
-            setOnFocusChangeListener(new OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View view, boolean b) {
-                    if(!b) {
-                        String chuoi = getText().toString();
-                        TextInputLayout textInputLayout = (TextInputLayout) view.getParent();
-                        matcher = pattern.matcher(chuoi);
-                        if(!matcher.matches()){
-                            textInputLayout.setErrorEnabled(true);
-                            textInputLayout.setError("Mật khẩu phải bao gồm 6 ký tự và một chữ hoa");
-                        }else{
-                            textInputLayout.setErrorEnabled(false);
-                            textInputLayout.setError("");
-                        }
 
-
-                    }
-                }
-            });
         }
         caidat();
     }

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.traudat.smartedu.Model.ObjectClass.ChiTietKhoaHoc;
@@ -38,11 +39,10 @@ public class ChiTietKhoaHocActivity extends AppCompatActivity implements ViewChi
 
         toolbar = findViewById(R.id.toolbar);
 
-
-
-        makhoahoc = getIntent().getIntExtra("makhoahoc",1);
+        makhoahoc = getIntent().getIntExtra("makhoahoc",0);
         presenterLogicChiTietKhoaHoc = new PresenterLogicChiTietKhoaHoc(this);
         presenterLogicChiTietKhoaHoc.LayChiTietKhoaHoc(makhoahoc);
+        Log.d("kiemtraba", String.valueOf(makhoahoc));
 
 
 
@@ -51,8 +51,10 @@ public class ChiTietKhoaHocActivity extends AppCompatActivity implements ViewChi
     @Override
     public void HienThiChiTietKhoaHoc(final KhoaHoc khoaHoc) {
 
-        makhoahoc = khoaHoc.getMAKHOAHOC();
-        txtTenKhoaHoc.setText(khoaHoc.getTENKHOAHOC());
+//        makhoahoc = khoaHoc.getMAKHOAHOC();
+
+//        txtTenKhoaHoc.setText(khoaHoc.getTENKHOAHOC());
+        txtTenKhoaHoc.setText(khoaHoc.getMAKHOAHOC());
         int giaTien = khoaHoc.getHOCPHI();
         NumberFormat numberFormat = new DecimalFormat("###,###");
         String gia = numberFormat.format(giaTien);

@@ -31,7 +31,7 @@
                         android:id="@+id/toolbar"
                         android:layout_width="100dp"
                         android:layout_height="?attr/actionBarSize"
-                        app:logo="@drawable/logo"
+
                         app:theme="@style/menuitemcolor">
 
                     </android.support.v7.widget.Toolbar>
